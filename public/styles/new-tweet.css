@@ -1,0 +1,34 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.tweet-counter-container {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Bungee', cursive, sans-serif;
+  font-weight: 400px;
+  justify-content: space-between;
+}
+
+.text-submission {
+  height: 40px;
+  width: 100%;
+  background-color:#f4f1ec; 
+  border: 0px;
+  border-bottom: 4px solid gray;
+}
+
+h2, #compose-tweet {
+  text-align: center;
+  padding: 0em;
+  margin: 0.5em;
+}
+
+#tweet-button {
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+}
