@@ -1,0 +1,16 @@
+header {
+  display: flex;
+  z-index: 1;
+  height: 400px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: #cfbe00;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+}
+
+h2 {
+  text-align: center;
+  padding: 0em 0em 1.5em;
+  margin: 0em 0em 1.5em;
+}

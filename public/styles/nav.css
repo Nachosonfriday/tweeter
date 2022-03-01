@@ -3,6 +3,29 @@ nav {
   color: #FFFFFF;
   width: 100%;
   height: 120px;
-  padding: 1.5em;
+  padding: 0em 1.5em;
   font-family: 'Bungee', cursive;
+  z-index: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drop-down-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.arrow{
+  color: red;
+}
+
+.tweet-text {
+  margin: 1.5em 0em 0em;
 }
