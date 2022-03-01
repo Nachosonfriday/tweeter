@@ -48,11 +48,17 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <div class="words-container">
-        <p>This is gonna be a happy little seascape. If you overwork it you become a cloud killer. There's nothing worse than a cloud killer. This is the time to get out all your flustrations, much better than kicking the dog around the house or taking it out on your spouse.</p>
-        <br>
-        <p>It's amazing what you can do with a little love in your heart. Just beat the devil out of it. What the devil. If you do too much it's going to lose its effectiveness. We'll put all the little clouds in and let them dance around and have fun. Let your imagination be your guide.</p>
-      </div>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
     </main>
   </body>
 </html>
