@@ -32,3 +32,11 @@ h2, #compose-tweet {
   color: white;
   border-radius: 3px;
 }
+
+.grey-color {
+  color: #545149;
+}
+
+.red-color {
+  color: red;
+}
