@@ -1,20 +1,24 @@
 .tweet-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   padding: 0 10px 0 10px;
   margin: 50px 0;
-  border: 4px solid black;
 }
 
-.tweet-container:hover {
-  box-shadow: 5px 5px 5px #54514992;
-}
+
 
 .tweet {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border: 4px solid black;
+  margin-top: 1em;
+}
+
+.tweet:hover {
+  box-shadow: 5px 5px 5px #54514992;
 }
 
 .tweet-header {
