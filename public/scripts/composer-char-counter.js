@@ -4,9 +4,11 @@ $(document).ready(function() {
     let maxLength = 140
     let newCount = $(this).siblings("div").children(".counter").text(maxLength - textLength)
     
-    if (textLength < maxLength) {
+    if (textLength <= maxLength) {
       newCount.addClass('grey-color')
-    } else if (textLength > maxLength) {
+      newCount.removeClass('red-color')
+    }
+    if (textLength > maxLength) {
       newCount.removeClass('grey-color')
       newCount.addClass('red-color')
     }   
