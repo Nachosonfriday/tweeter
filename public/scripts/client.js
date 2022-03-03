@@ -59,10 +59,29 @@ $(document).ready(function() {
     )
   }
 
-  renderTweets(data);
+  // renderTweets(data); 
+  
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    let serializedData = $('form').serialize()
+    console.log("data", serializedData)
+    console.log("form was submitted")
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: serializedData
+    })
+    // .then(function(data) {
+    //   console.log("hi there")
+    //   renderTweets(serializedData)
+    // })
+  //   .catch(function(error) {
+  //     console.log("error happened", error)
+  //   })
+  })
 })
 
 
-
+  
 
 
