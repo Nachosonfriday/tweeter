@@ -6,39 +6,17 @@
 
 // Generates a tweet component
 $(document).ready(function() {
-  
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
 
+  //Cycles through tweets and then prepends to list
   const renderTweets = function(tweets) {
+    $('.tweet-container').empty()
     for (let tweet of tweets) {
       let newTweet = createTweetElement(tweet)
-      $('.tweet-container').append(newTweet);  
+      $('.tweet-container').prepend(newTweet);  
     }   
   }
 
+  //Creates a tweet
   const createTweetElement = (tweetObj) => {
     return (`
       <article class="tweet">
@@ -58,27 +36,47 @@ $(document).ready(function() {
       </article> `
     )
   }
-
-  // renderTweets(data); 
   
+  //Post request to put tweets into DB
   $('form').on('submit', function(event) {
     event.preventDefault();
-    let serializedData = $('form').serialize()
-    console.log("data", serializedData)
-    console.log("form was submitted")
+    let serializedData = $('form').serialize();
+    
+    if (serializedData.length <= 5) {
+      alert("Please enter a tweet")
+      return
+    };
+    if (serializedData.length > 145) {
+      alert("Your tweet is too long")
+      return
+    }
+
     $.ajax({
       url: '/tweets',
       method: 'POST',
       data: serializedData
     })
-    // .then(function(data) {
-    //   console.log("hi there")
-    //   renderTweets(serializedData)
-    // })
-  //   .catch(function(error) {
-  //     console.log("error happened", error)
-  //   })
+    .then(function(data) {
+      loadTweets()
+    })
+    .catch(function(error) {
+      console.log("error happened", error)
+    })
   })
+
+  //Function to put tweets on the page
+  const loadTweets = () => {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET', 
+    })
+    .then(function(tweets) {
+      renderTweets(tweets);
+    })
+    .catch(function(error){
+      console.log('error', error)
+    })
+  }
 })
 
 
