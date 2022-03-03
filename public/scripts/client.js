@@ -7,6 +7,13 @@
 // Generates a tweet component
 $(document).ready(function() {
 
+  //prevents malicious html being submitted
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   //Cycles through tweets and then prepends to list
   const renderTweets = function(tweets) {
     $('.tweet-container').empty()
@@ -21,12 +28,12 @@ $(document).ready(function() {
     return (`
       <article class="tweet">
         <header class="tweet-header">
-          <p><i class="fa-solid fa-face-grin-hearts"></i>   ${tweetObj.user.name}</p>
-          <p>${tweetObj.user.handle}</p>
+          <p><i class="fa-solid fa-face-grin-hearts"></i>   ${escape(tweetObj.user.name)}</p>
+          <p>${escape(tweetObj.user.handle)}</p>
         </header>
-        <p class="tweet-paragraph">${tweetObj.content.text}</p>
+        <p class="tweet-paragraph">${escape(tweetObj.content.text)}</p>
         <footer class="tweet-footer">
-          <p>${timeago.format(tweetObj.created_at)}</p>
+          <p>${timeago.format(escape(tweetObj.created_at))}</p>
           <div class="icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
