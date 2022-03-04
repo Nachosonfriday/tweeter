@@ -25,10 +25,11 @@ $(document).ready(function() {
 
   //Creates a tweet
   const createTweetElement = (tweetObj) => {
+    console.log("avatar", tweetObj)
     return (`
       <article class="tweet">
         <header class="tweet-header">
-          <p><i class="fa-solid fa-face-grin-hearts"></i>   ${escape(tweetObj.user.name)}</p>
+          <p><img src=${tweetObj.user.avatars}/>   ${escape(tweetObj.user.name)}</p>
           <p>${escape(tweetObj.user.handle)}</p>
         </header>
         <p class="tweet-paragraph">${escape(tweetObj.content.text)}</p>

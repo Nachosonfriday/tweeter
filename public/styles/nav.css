@@ -24,8 +24,9 @@ nav {
   font-weight: 600;
 }
 
-.arrow{
+#arrow{
   color: red;
+  cursor: default;
 }
 
 .tweet-text {

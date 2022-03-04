@@ -44,25 +44,19 @@
 .icons {
   display: flex;
   color: blue;
-  padding: 0px 5px;
   justify-content: space-between;
 }
 
+.fa-solid {
+  padding: 5px;
+  padding-top: 10px;
+}
+
+.fa-solid:hover {
+  color: orange;
+  cursor: pointer;
+}
+
 .time {
-  padding-left: 5px;
-}
-
-.fa-flag:hover {
-  color: orange;
-  cursor: pointer;
-}
-
-.fa-retweet:hover {
-  color: orange;
-  cursor: pointer;
-}
-
-.fa-heart:hover {
-  color: orange;
-  cursor: pointer;
+  padding: 0px 0px 20px 5px;
 }
