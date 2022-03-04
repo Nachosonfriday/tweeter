@@ -8,7 +8,7 @@
 $(document).ready(function() {
 
   //prevents malicious html being submitted
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -16,16 +16,15 @@ $(document).ready(function() {
 
   //Cycles through tweets and then prepends to list
   const renderTweets = function(tweets) {
-    $('.tweet-container').empty()
+    $('.tweet-container').empty();
     for (let tweet of tweets) {
-      let newTweet = createTweetElement(tweet)
-      $('.tweet-container').prepend(newTweet);  
-    }   
-  }
+      let newTweet = createTweetElement(tweet);
+      $('.tweet-container').prepend(newTweet);
+    }
+  };
 
   //Creates a tweet
   const createTweetElement = (tweetObj) => {
-    console.log("avatar", tweetObj)
     return (`
       <article class="tweet">
         <header class="tweet-header">
@@ -42,8 +41,8 @@ $(document).ready(function() {
           </div>
         </footer>
       </article> `
-    )
-  }
+    );
+  };
   
   
   $('form').on('submit', function(event) {
@@ -52,12 +51,12 @@ $(document).ready(function() {
     
     //Validation check on tweet length
     if (serializedData.length <= 5) {
-      $(".tweet-alert").html("Please enter a tweet!").slideDown("slow")
-      return
-    };
+      $(".tweet-alert").html("Please enter a tweet!").slideDown("slow");
+      return;
+    }
     if (serializedData.length > 145) {
-      $(".tweet-alert").html("Your tweet is too long!").slideDown("slow")
-      return
+      $(".tweet-alert").html("Your tweet is too long!").slideDown("slow");
+      return;
     }
     //Post request to put tweets into DB
     $.ajax({
@@ -65,32 +64,32 @@ $(document).ready(function() {
       method: 'POST',
       data: serializedData
     })
-    .then(function(data) {
-      loadTweets()
-      $(".tweet-alert").hide()
-      $('#tweet-text').val("").focus();
-      //resets counter back to 140 after tweet submission
-      $('#tweet-text').siblings("div").children(".counter").text(140)
-    })
-    .catch(function(error) {
-      console.log("error happened", error)
-    })
-  })
+      .then(function(data) {
+        loadTweets();
+        $(".tweet-alert").hide();
+        $('#tweet-text').val("").focus();
+        //resets counter back to 140 after tweet submission
+        $('#tweet-text').siblings("div").children(".counter").text(140);
+      })
+      .catch(function(error) {
+        console.log("error happened", error);
+      });
+  });
 
   //Function to put tweets on the page
   const loadTweets = () => {
     $.ajax({
       url: '/tweets',
-      method: 'GET', 
+      method: 'GET',
     })
-    .then(function(tweets) {
-      renderTweets(tweets);
-    })
-    .catch(function(error){
-      console.log('error', error)
-    })
-  }
-})
+      .then(function(tweets) {
+        renderTweets(tweets);
+      })
+      .catch(function(error) {
+        console.log('error', error);
+      });
+  };
+});
 
 
   
