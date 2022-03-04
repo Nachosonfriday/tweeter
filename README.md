@@ -17,7 +17,7 @@ Tweeter displays two different media query breakpoints. The default mobile view,
 
 ## Final Product
 
-!["screenshot description"](#)
-!["screenshot description"](#)
-!["screenshot description"](#)
-!["screenshot description"](#)
+!["Desktop Pre-Tweet"](https://github.com/Nachosonfriday/tweeter/blob/master/docs/Desktop%20Pre-Tweet.png)
+!["Desktop Post-Tweet"](https://github.com/Nachosonfriday/tweeter/blob/master/docs/Desktop%20Post-Tweet.png)
+!["Tablet Pre-Tweet"](https://github.com/Nachosonfriday/tweeter/blob/master/docs/Tablet%20Pre-Tweet.png)
+!["Tablet Post-Tweet"](https://github.com/Nachosonfriday/tweeter/blob/master/docs/Tablet%20Post-Tweet.png)
