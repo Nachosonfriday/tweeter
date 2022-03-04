@@ -36,3 +36,15 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ @media (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .container {
+    margin: 200px 50px 0px 150px;
+    width: 40%;
+  }
+}

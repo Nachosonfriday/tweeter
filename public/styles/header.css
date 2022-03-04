@@ -1,6 +1,5 @@
 #main-header {
   display: flex;
-  z-index: 1;
   height: 400px;
   width: 100%;
   flex-direction: column;
@@ -8,10 +7,18 @@
   background-color: #cfbe00;
   background-image: url("https://www.transparenttextures.com/patterns/arches.png");
   margin-top: 120px;
+  padding: 40px;
 }
 
 h2 {
   text-align: center;
   padding: 0em 0em 1.5em;
   margin: 0em 0em 1.5em;
+}
+
+@media (min-width: 1024px) {
+  #main-header {
+    width: 40%;
+    margin: 200px 0px 0px 50px;
+  }
 }

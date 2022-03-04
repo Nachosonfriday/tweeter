@@ -33,7 +33,7 @@ $(document).ready(function() {
         </header>
         <p class="tweet-paragraph">${escape(tweetObj.content.text)}</p>
         <footer class="tweet-footer">
-          <p>${timeago.format(escape(tweetObj.created_at))}</p>
+          <p class="time">${timeago.format(escape(tweetObj.created_at))}</p>
           <div class="icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -44,20 +44,21 @@ $(document).ready(function() {
     )
   }
   
-  //Post request to put tweets into DB
+  
   $('form').on('submit', function(event) {
     event.preventDefault();
     let serializedData = $('form').serialize();
     
+    //Validation check on tweet length
     if (serializedData.length <= 5) {
-      alert("Please enter a tweet")
+      $(".tweet-alert").html("Please enter a tweet!").slideDown("slow")
       return
     };
     if (serializedData.length > 145) {
-      alert("Your tweet is too long")
+      $(".tweet-alert").html("Your tweet is too long!").slideDown("slow")
       return
     }
-
+    //Post request to put tweets into DB
     $.ajax({
       url: '/tweets',
       method: 'POST',
@@ -65,6 +66,10 @@ $(document).ready(function() {
     })
     .then(function(data) {
       loadTweets()
+      $(".tweet-alert").hide()
+      $('#tweet-text').val("").focus();
+      //resets counter back to 140 after tweet submission
+      $('#tweet-text').siblings("div").children(".counter").text(140)
     })
     .catch(function(error) {
       console.log("error happened", error)
