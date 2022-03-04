@@ -69,7 +69,7 @@ $(document).ready(function() {
         $(".tweet-alert").hide();
         $('#tweet-text').val("").focus();
         //resets counter back to 140 after tweet submission
-        $('#tweet-text').siblings("div").children(".counter").text(140);
+        $(".counter").text(140);
       })
       .catch(function(error) {
         console.log("error happened", error);
